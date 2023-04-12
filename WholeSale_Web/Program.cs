@@ -1,5 +1,5 @@
+using Mart.DataAccess;
 using Microsoft.EntityFrameworkCore;
-using WholeSale_Web.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using WholeSale_Web.Data;
-using WholeSale_Web.Models;
+﻿using Mart.DataAccess;
+using Mart.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace WholeSale_Web.Controllers
 {

@@ -1,6 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Mart.Models;
+using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
-using WholeSale_Web.Models;
 
 namespace WholeSale_Web.Controllers
 {

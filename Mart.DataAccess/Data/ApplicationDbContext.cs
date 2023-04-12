@@ -1,7 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
-using WholeSale_Web.Models;
+﻿using Mart.Models;
+using Microsoft.EntityFrameworkCore;
 
-namespace WholeSale_Web.Data
+namespace Mart.DataAccess
 {
     public class ApplicationDbContext : DbContext
     {
