@@ -2,14 +2,15 @@
 using Mart.Models;
 using Microsoft.AspNetCore.Mvc;
 
-namespace WholeSale_Web.Controllers
+namespace WholeSale_Web.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
         public CategoryController(IUnitOfWork unitOfWork)
         {
-            _unitOfWork = unitOfWork; 
+            _unitOfWork = unitOfWork;
         }
         public IActionResult Index()
         {
@@ -39,13 +40,13 @@ namespace WholeSale_Web.Controllers
         //Edit Get and Post action methods
         public IActionResult Edit(int? id)
         {
-            if(id==null || id==0)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
 
             Category? categoryFromDb = _unitOfWork.Category.Get(x => x.Id == id);
-            if (categoryFromDb==null)
+            if (categoryFromDb == null)
             {
                 return NotFound();
             }
