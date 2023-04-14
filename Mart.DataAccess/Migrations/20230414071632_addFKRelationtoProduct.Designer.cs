@@ -3,6 +3,7 @@ using Mart.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Mart.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230414071632_addFKRelationtoProduct")]
+    partial class addFKRelationtoProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -77,10 +80,6 @@ namespace Mart.DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<double>("OriginalPrice")
                         .HasColumnType("float");
 
@@ -116,7 +115,6 @@ namespace Mart.DataAccess.Migrations
                             Id = 1,
                             CategoryId = 1,
                             Description = "Set of 6 stainless steel spoons in Lowest Price",
-                            ImageUrl = "",
                             OriginalPrice = 600.0,
                             Price = 550.0,
                             Price10 = 500.0,
@@ -130,7 +128,6 @@ namespace Mart.DataAccess.Migrations
                             Id = 2,
                             CategoryId = 2,
                             Description = "Set of 12 Caps in Lowest Price",
-                            ImageUrl = "",
                             OriginalPrice = 1200.0,
                             Price = 1100.0,
                             Price10 = 950.0,
@@ -144,7 +141,6 @@ namespace Mart.DataAccess.Migrations
                             Id = 3,
                             CategoryId = 2,
                             Description = "Set of 12 Socks in Lowest Price",
-                            ImageUrl = "",
                             OriginalPrice = 1000.0,
                             Price = 900.0,
                             Price10 = 850.0,
@@ -158,7 +154,6 @@ namespace Mart.DataAccess.Migrations
                             Id = 4,
                             CategoryId = 6,
                             Description = "Set of 50 disposable Paper plates",
-                            ImageUrl = "",
                             OriginalPrice = 100.0,
                             Price = 80.0,
                             Price10 = 75.0,
