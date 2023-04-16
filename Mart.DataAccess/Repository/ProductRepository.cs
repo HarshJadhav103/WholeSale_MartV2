@@ -19,7 +19,23 @@ namespace Mart.DataAccess.Repository
 
         public void Update(Product obj)
         {
-            _db.Products.Update(obj);
+            var objFromDb = _db.Products.FirstOrDefault(x=>x.Id == obj.Id);
+            if (objFromDb != null)
+            {
+                objFromDb.ProductNumber = obj.ProductNumber;
+                objFromDb.ProductNumber = obj.ProductNumber;
+                objFromDb.OriginalPrice = obj.OriginalPrice;
+                objFromDb.Price = obj.Price;
+                objFromDb.Price25 = obj.Price25;
+                objFromDb.Description = obj.Description;
+                objFromDb.Price10 = obj.Price10;
+                objFromDb.CategoryId = obj.CategoryId;
+                objFromDb.VedorName = obj.VedorName;
+                if(obj.ImageUrl != null)
+                {
+                    objFromDb.ImageUrl = obj.ImageUrl;
+                }
+            }
         }
     }
 }
