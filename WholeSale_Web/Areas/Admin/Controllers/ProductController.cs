@@ -1,12 +1,16 @@
 ﻿using Mart.DataAccess.Repository.IRepository;
 using Mart.Models;
 using Mart.Models.ViewModels;
+using Mart.Utility;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Data;
 
 namespace WholeSale_Web.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = SD.Role_Admin)]
     public class ProductController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;
