@@ -15,6 +15,7 @@ namespace Mart.DataAccess
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<Company> Companies { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -25,8 +26,30 @@ namespace Mart.DataAccess
                 new Category { Id=2, Name="Clothing", DisplayOrder=2 },
                 new Category { Id=3, Name="Stationary", DisplayOrder=3 }
                 );
+            modelBuilder.Entity<Company>().HasData(
+                new Company 
+                { 
+                    Id = 2, 
+                    Name = "Harsh Pvt. Ltd.",
+                    StreetAddress = "15, Premchandnagar Society, Bodekdev",
+                    City = "Ahmedabad",
+                    State = "Gujarat",
+                    PostalCode = "396125",
+                    PhoneNumber = "7048429818"
+                },
+                new Company
+                {
+                    Id = 3,
+                    Name = "Vicky Pvt. Ltd.",
+                    StreetAddress = "15, Askray Society, Bholav",
+                    City = "Bharuch",
+                    State = "Gujarat",
+                    PostalCode = "396123",
+                    PhoneNumber = "9979619688"
+                }
+                );
 
-                modelBuilder.Entity<Product>().HasData(
+            modelBuilder.Entity<Product>().HasData(
                 new Product
                 {
                     Id = 1,

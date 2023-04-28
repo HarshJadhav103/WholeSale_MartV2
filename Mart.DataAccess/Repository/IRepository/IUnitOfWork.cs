@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Mart.DataAccess.Repository.IRepository
+﻿namespace Mart.DataAccess.Repository.IRepository
 {
     public interface IUnitOfWork
     {
-         ICategoryRepository Category { get; }
-         IProductRepository Product { get; }
+        ICategoryRepository Category { get; }
+        IProductRepository Product { get; }
+        ICompanyRepository Company { get; }
 
         void Save();
     }
