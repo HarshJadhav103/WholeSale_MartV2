@@ -1,6 +1,8 @@
 ﻿using Mart.DataAccess.Repository.IRepository;
 using Mart.Models;
+using Mart.Utility;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Security.Claims;
@@ -50,14 +52,17 @@ namespace WholeSale_Web.Areas.Customer.Controllers
                 //shopping cart already exists
                 cartFromDb.Count += shoppingCart.Count;
                 _unitOfWork.ShoppingCart.Update(cartFromDb);
+                _unitOfWork.Save();
             }
             else
             {
                 //add to cart
                 _unitOfWork.ShoppingCart.Add(shoppingCart);
+                _unitOfWork.Save();
+                HttpContext.Session.SetInt32(SD.SessionCart,
+                    _unitOfWork.ShoppingCart.GetAll(u => u.ApplicationUserId == userId).Count());
             }
             TempData["success"] = "Cart Updated Successfully";
-            _unitOfWork.Save();  
             return RedirectToAction(nameof(Index));
         }
 
